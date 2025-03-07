@@ -9,8 +9,8 @@ void main() {
     late Player player1;
     late Player player2;
     setUp(() {
-      player1 = Player("Sydney Sweeney");
-      player2 = Player("Vlad");
+      player1 = Player("uuid1", "Sydney Sweeney");
+      player2 = Player("uuid2", "Vlad");
       final players = [player1, player2];
       game = SnookerGame(players, 6);
     });
