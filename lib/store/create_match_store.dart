@@ -1,8 +1,11 @@
 
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:snooker_stat/app_route.dart';
 import 'package:snooker_stat/db/datastore/player_data_store.dart';
 import 'package:snooker_stat/di/inject.dart';
 import 'package:snooker_stat/model/player.dart';
+import 'package:snooker_stat/store/snooker_board_store.dart';
 
 part 'create_match_store.g.dart';
 
@@ -10,6 +13,7 @@ class CreateMatchStore = _CreateMatchStoreBase with _$CreateMatchStore;
 
 abstract class _CreateMatchStoreBase with Store {
   final PlayerDataStore playerDataStore = inject();
+  final SnookerBoardStore snookerBoardStore = inject();
   @observable
   ObservableList<Player> players = ObservableList();
   @observable
@@ -58,5 +62,9 @@ abstract class _CreateMatchStoreBase with Store {
   }
   @action void savePlayerTwoHandicap(int handicap) {
     playerTwoHandicap = handicap;
+  }
+  void createMatch(BuildContext context) {
+    snookerBoardStore.createGame(selectedPlayers, numberOfRed);
+    Navigator.pushNamed(context, AppRoute.snooker_board);
   }
 }

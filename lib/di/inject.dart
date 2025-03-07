@@ -16,6 +16,6 @@ Future _injectServices() async {
 }
 
 void _injectStores() {
-  inject.registerSingleton(CreateMatchStore());
   inject.registerSingleton(SnookerBoardStore());
+  inject.registerSingleton(CreateMatchStore());
 }

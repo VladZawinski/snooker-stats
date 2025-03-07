@@ -20,6 +20,7 @@ class CreateMatchScreen extends StatelessWidget {
         title: Text('Match Setup'),
       ),
       body: PageView.builder(
+        itemCount: 3,
         controller: _pageController,
         itemBuilder: (context, index) {
           switch(index) {
@@ -32,22 +33,23 @@ class CreateMatchScreen extends StatelessWidget {
                 );
               },
             );
-            case 1: CreateMatchContent(
+            case 1: return CreateMatchContent(
               createMatchStore: _createMatchStore,
             );
-            case 2: WhoWillBreakContent(
+            case 2: return WhoWillBreakContent(
               createMatchStore: _createMatchStore,
             );
           }
         },
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        final index = _pageController.initialPage;
-        print("index: $index");
+        final index = _pageController.page;
         switch(index) {
           case 0: _pageController.jumpToPage(1);
           break;
           case 1: _pageController.jumpToPage(2);
+          break;
+          case 2: _createMatchStore.createMatch(context);
           break;
         }
       },
