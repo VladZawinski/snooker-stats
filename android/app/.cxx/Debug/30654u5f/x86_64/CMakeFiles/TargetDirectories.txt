@@ -1,0 +1,2 @@
+/Users/codigo/Tuna/snooker_stat/android/app/.cxx/Debug/30654u5f/x86_64/CMakeFiles/edit_cache.dir
+/Users/codigo/Tuna/snooker_stat/android/app/.cxx/Debug/30654u5f/x86_64/CMakeFiles/rebuild_cache.dir
